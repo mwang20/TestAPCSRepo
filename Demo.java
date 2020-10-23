@@ -12,7 +12,11 @@ public class Demo{
     System.out.println("");
     arrDeepToString(create2DArray(2, 2, 4));
     System.out.println("");
-    arrDeepToString(create2DArrayRandomized(5, 5, 4));
+    arrDeepToString(create2DArray(5, 5, 4));
+    System.out.println("");
+    arrDeepToString(create2DArrayRandomized(10, 10, 5));
+    System.out.println("");
+    arrDeepToString(create2DArrayRandomized(15, 15, 10));
   }
   public static void printLoop(int n){
     for(int i = 1; i <= n; i++ ){
