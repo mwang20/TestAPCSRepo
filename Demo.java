@@ -12,6 +12,7 @@ public class Demo{
     System.out.println("");
     arrDeepToString(create2DArray(2, 2, 4));
     System.out.println("");
+    arrDeepToString(create2DArrayRandomized(5, 5, 4));
   }
   public static void printLoop(int n){
     for(int i = 1; i <= n; i++ ){
@@ -43,5 +44,17 @@ public class Demo{
        }
      }
      return new2DArray;
+   }
+   public static int[][] create2DArrayRandomized(int rows, int cols, int maxValue){
+     Random rand = new Random();
+     int randomRows = rand.nextInt(rows + 1);
+     int randomCols = rand.nextInt(cols + 1);
+     int[][] new2DArrayRandomized = new int[randomRows][randomCols];
+     for (int i = 0; i < randomRows; i++){
+       for (int j = 0; j < randomCols; j++){
+         new2DArrayRandomized [i][j] = rand.nextInt(maxValue + 1);
+       }
+     }
+     return new2DArrayRandomized;
    }
 }
