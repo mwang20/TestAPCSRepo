@@ -1,22 +1,22 @@
 import java.util.Random;
+import java.util.Arrays;
 public class Demo{
   public static void main(String[] args){
-    int pyramid = Integer.parseInt(args[0]);
-    printLoop(pyramid);
+    if ( args == null || args.length == 0){
+      printLoop(5);
+    }
+    else printLoop(Integer.parseInt(args[0]));
     System.out.println("");
     int[] n = {5, 4, 3, 2, 1};
-    int[][] test = {{5, 4, 3, 2, 1},{1, 2, 3, 4, 5}};
-    arrToString(n);
-    System.out.println("");
-    arrDeepToString(test);
-    System.out.println("");
-    arrDeepToString(create2DArray(2, 2, 4));
-    System.out.println("");
-    arrDeepToString(create2DArray(5, 5, 4));
-    System.out.println("");
-    arrDeepToString(create2DArrayRandomized(10, 10, 5));
-    System.out.println("");
-    arrDeepToString(create2DArrayRandomized(15, 15, 10));
+    System.out.println(arrToString(n));
+    System.out.println();
+    System.out.println(arrayDeepToString(create2DArray(5, 4, 4)));
+    System.out.println();
+    System.out.println(arrayDeepToString(create2DArray(6, 2, 3)));
+    System.out.println();
+    System.out.println(arrayDeepToString(create2DArrayRandomized(6, 4, 4)));
+    System.out.println();
+    System.out.println(arrayDeepToString(create2DArrayRandomized(4, 10, 100)));
   }
   public static void printLoop(int n){
     for(int i = 1; i <= n; i++ ){
@@ -26,18 +26,15 @@ public class Demo{
       System.out.println();
     }
   }
-   public static void arrToString(int []arr){
-      for ( int i = 0; i < arr.length; i++ )
-          System.out.print(arr[i]);
+   public static String arrToString(int []arr){
+      return Arrays.toString(arr);
    }
-   public static void arrDeepToString(int [][]arr){
-      System.out.println();
-      for ( int i = 0; i < arr.length; i++ ){
-        for ( int j = 0; j < arr[i].length; j++ ){
-            System.out.print(arr[i][j] + " ");
-          }
-          System.out.println();
-      }
+   public static String arrayDeepToString(int [][]arr){
+     String a = "";
+     for(int i = 0; i < arr.length; i++){
+       a = a + Arrays.toString(arr[i]) + "\n";
+     }
+      return a;
     }
    public static int[][] create2DArray(int rows, int cols, int maxValue){
      Random rand = new Random();
@@ -51,10 +48,9 @@ public class Demo{
    }
    public static int[][] create2DArrayRandomized(int rows, int cols, int maxValue){
      Random rand = new Random();
-     int randomRows = rand.nextInt(rows + 1);
      int randomCols = rand.nextInt(cols + 1);
-     int[][] new2DArrayRandomized = new int[randomRows][randomCols];
-     for (int i = 0; i < randomRows; i++){
+     int[][] new2DArrayRandomized = new int[rows][randomCols];
+     for (int i = 0; i < rows; i++){
        for (int j = 0; j < randomCols; j++){
          new2DArrayRandomized [i][j] = rand.nextInt(maxValue + 1);
        }
